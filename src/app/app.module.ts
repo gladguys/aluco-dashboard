@@ -9,6 +9,9 @@ import { AuthModule } from './signin/auth.module';
 import { CustomMaterialModule } from './customMaterialModule';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboad.component';
+import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { DashboardComponent } from './dashboard/dashboad.component';
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
