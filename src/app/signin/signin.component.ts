@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { TokenService } from '../token.service';
 
 @Component({
     templateUrl: './signin.component.html',
@@ -15,7 +16,8 @@ export class SignInComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder, 
                 private authService: AuthService,
-                private router: Router) {}
+                private router: Router,
+                private tokenService: TokenService) {}
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
@@ -28,11 +30,15 @@ export class SignInComponent implements OnInit {
         const email = this.loginForm.get('email').value;
         const password = this.loginForm.get('password').value;
 
-        this.authService.authenticate(email, password).subscribe( res => {
-            console.log("deu certo: " + res );
+        this.authService.authenticate(email, password).subscribe( (res: any) => {
+            this.saveToken(res.token);
             this.router.navigateByUrl('/');
         }, err => {
             console.error("deu ruim");
         });
+    }
+
+    saveToken(token: string) {
+        this.tokenService.setToken(token);
     }
  }
