@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignInComponent } from './signin/signin.component';
+import { DashboardComponent } from './dashboard/dashboad.component';
 
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'signin',
     component: SignInComponent
+  },
+  {
+    path: '',
+    component: DashboardComponent
   }
 ];
 

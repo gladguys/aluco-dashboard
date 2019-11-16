@@ -3,19 +3,23 @@
 <div class="card offset-md-2 col-md-8">
     <div class="card-header">Entre em sua conta aluco, professor.</div>
     <div class="card-body">
-        <form class="form mt-4">
+        <form [formGroup]="loginForm" class="form mt-4">
 
             <div class="form-group">
-                <input class="form-control" placeholder="email" autofocus>
+                <input formControlName="email" class="form-control" placeholder="email" autofocus>
+                <small *ngIf="loginForm.get('email').errors?.required" class="text-danger d-block mt-2">
+                    Email é obrigatório!
+                </small>
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="senha">
+                <input formControlName="password" type="password" class="form-control" placeholder="senha">
+                <small *ngIf="loginForm.get('password').errors?.required" class="text-danger d-block mt-2">
+                    Senha é obrigatória!
+                </small>
             </div>
 
-            <button type="submit" class="btn btn-login btn-block">
-                login
-            </button>
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">login</button>
         </form>
     </div>
 </div>

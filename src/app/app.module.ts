@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './signin/auth.module';
 import { CustomMaterialModule } from './customMaterialModule';
+import { HeaderComponent } from './header/header.component';
+import { DashboardComponent } from './dashboard/dashboad.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
