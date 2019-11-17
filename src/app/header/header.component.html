@@ -1,23 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Aluco</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Dashboad <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Alunos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Turmas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Planos de Aula</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<header class="aluco-header">
+    <nav class="navbar">
+        <a class="navbar-brand">ALUCO</a>
+
+        <div *ngIf="(user$ | async) as user; else login">
+            <i class="fa fa-user-circle"></i>
+            <a class="ml-2">{{ user.name }}</a>
+        </div>
+
+        <ng-template #login>
+            <span class="navbar-text">
+                Faça o login!
+            </span>
+        </ng-template>
+
+    </nav>
+</header>
