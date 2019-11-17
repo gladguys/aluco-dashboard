@@ -35,5 +35,8 @@ export class StudentsComponent implements OnInit {
     save() {
         const newStudent = this.studentForm.getRawValue();
         console.log(newStudent); 
+        this.studentService.save(newStudent).subscribe(res => {
+            this.students.includes(newStudent);
+        });
     }
 }
