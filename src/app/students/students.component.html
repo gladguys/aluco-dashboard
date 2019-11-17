@@ -7,42 +7,39 @@
     </div>
     <div class="col-md-5 mb-5">
         <label class="title-content">Criar Novo Aluno</label>
-        <form>
+        <form [formGroup]="studentForm">
             <div class="form-group">
                 <label for="regnumber">Matrícula</label>
-                <input type="text" class="form-control col-md-12" id="regnumber" placeholder="matrícula do aluno">
+                <input formControlName="registrationNumber" type="text" class="form-control col-md-12" id="regnumber"
+                    placeholder="matrícula do aluno">
             </div>
             <div class="form-group">
                 <label for="name">Nome Completo</label>
-                <input type="text" class="form-control" id="name" placeholder="nome e sobrenome do aluno">
+                <input formControlName="name" type="text" class="form-control" id="name"
+                    placeholder="nome e sobrenome do aluno">
             </div>
             <div class="form-group">
                 <label for="email">Email do aluno</label>
-                <input type="email" class="form-control" id="email" placeholder="example@example.com">
+                <input formControlName="email" type="email" class="form-control" id="email"
+                    placeholder="example@example.com">
             </div>
 
             <div class="form-group">
                 <label for="addres">Endereço</label>
-                <input type="text" class="form-control" id="addres" placeholder="Rua/Avenida, número e complemento...">
-            </div>
-
-            <div class="form-group">
-                <label for="addres">Endereço</label>
-                <input type="text" class="form-control" id="addres" placeholder="Rua/Avenida, número e complemento...">
+                <input formControlName="address" type="text" class="form-control" id="addres"
+                    placeholder="Rua/Avenida, número e complemento...">
             </div>
 
             <div class="form-group">
                 <label>Sexo</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="masculino" value="option1"
-                        checked>
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="masculino" value="0" checked>
                     <label class="form-check-label" for="exampleRadios1">
                         Masculino
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                        value="option2">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="1">
                     <label class="form-check-label" for="exampleRadios2">
                         Feminino
                     </label>
@@ -52,12 +49,12 @@
 
             <div class="form-group">
                 <label for="dateBirth">Data de Nascimento</label>
-                <input type="date" class="form-control" id="dateBirth">
+                <input formControlName="dateBirth" type="date" class="form-control" id="dateBirth">
             </div>
 
             <div class="form-group">
                 <label for="responsbleName">Nome do Responsável</label>
-                <input type="text" class="form-control" id="responsbleName"
+                <input formControlName="responsableName" type="text" class="form-control" id="responsbleName"
                     placeholder="nome do responsável pelo aluno">
             </div>
 
@@ -67,12 +64,13 @@
             </div>
 
             <div class="form-group">
-                    <label for="obs">Observações</label>
-                    <textarea rows="4" cols="50"  class="form-control" id="obs" placeholder="Observações extra sobre o aluno"></textarea>
-                </div>
+                <label for="obs">Observações</label>
+                <textarea rows="4" cols="50" class="form-control" id="obs"
+                    placeholder="Observações extra sobre o aluno"></textarea>
+            </div>
 
 
-            <button type="submit" class="btn btn-primary">Salvar Alunos</button>
+            <button (click)="save()" [disabled]="studentForm.invalid" type="submit" class="btn btn-primary">Salvar Alunos</button>
         </form>
     </div>
 </div>
