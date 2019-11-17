@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignInComponent } from './signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboad.component';
 import { AuthGuard } from './auth.guard';
+import { StudentsComponent } from './students/students.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'students',
+    component: StudentsComponent,
     canActivate: [AuthGuard]
   }
 ];
