@@ -14,13 +14,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { StudentsComponent } from './students/students.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { ClassesComponent } from './classes/classes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
-    StudentsComponent
+    StudentsComponent,
+    ClassesComponent
   ],
   imports: [
     BrowserModule,
