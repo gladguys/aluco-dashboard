@@ -13,7 +13,7 @@ export class UserService {
             //      this.decodeAndNotify();
      }
 
-    setToken(payload: any) {
+    setToken(payload: string) {
         this.tokenService.setToken(payload);
         //this.decodeAndNotify();
     }

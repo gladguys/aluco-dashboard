@@ -32,14 +32,9 @@ export class SignInComponent implements OnInit {
         const password = this.loginForm.get('password').value;
 
         this.authService.authenticate(email, password).subscribe( (res: any) => {
-            this.saveToken(res);
             this.router.navigateByUrl('/');
         }, err => {
             console.error("deu ruim");
         });
-    }
-
-    saveToken(payload: any) {
-        this.userService.setToken(payload);
     }
  }
