@@ -18,7 +18,7 @@ export class StudentsComponent implements OnInit {
         this.studentService.getList()
             .subscribe((res: Student[]) => {
                 this.students = res;
-            })
+            });
 
         this.studentForm = this.formBuilder.group({
             registrationNumber: ['', Validators.required],
@@ -28,15 +28,20 @@ export class StudentsComponent implements OnInit {
             dateBirth: [''],
             phone: [''],
             responsableName: [''],
-            address: ['']
+            address: [''],
+            responsiblePhone: [''],
+            previousSchool: [''],
         });
     }
 
     save() {
         const newStudent = this.studentForm.getRawValue();
-        console.log(newStudent); 
         this.studentService.save(newStudent).subscribe(res => {
-            this.students.includes(newStudent);
+            this.studentForm.reset();
+            this.studentService.getList()
+                .subscribe((res: Student[]) => {
+                    this.students = res;
+                })
         });
     }
 }
