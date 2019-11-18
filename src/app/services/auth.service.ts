@@ -14,7 +14,6 @@ export class AuthService {
         return this.http.post(API_URL +'/auth', {email,password})
         .pipe(tap((res:any) => {
             const token = res.token;
-            console.log(token);
             this.userService.setToken(token);
           }));
     }
