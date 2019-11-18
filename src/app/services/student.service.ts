@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Student } from '../models/student.model';
+import { API_URL } from '../variables';
 
 @Injectable({ providedIn: 'root' })
 export class StudentService {
